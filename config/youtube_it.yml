@@ -1,0 +1,11 @@
+common: &common
+  dev_key: ENV['YOUTUBE_DEV_KEY']
+  username:  ENV['G_USER']
+  password:  ENV['G_PWD']
+  
+test:
+  <<: *common
+development:
+  <<: *common
+production:
+  <<: *common

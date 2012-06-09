@@ -14,7 +14,7 @@ gem "sqlite3-ruby", :group => :development
 group :assets do
 
   gem "rails-backbone"
-  gem 'twitter-bootstrap-rails'
+
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -27,6 +27,8 @@ group :assets do
   gem "select2-rails", "~> 0.0.3"
   gem 'haml_coffee_assets'
 end
+
+gem 'twitter-bootstrap-rails'
 
 gem 'jquery-rails'
 
