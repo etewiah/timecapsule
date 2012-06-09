@@ -1,0 +1,10 @@
+
+heroku create timecaps --stack cedar
+
+rails g scaffold video title:string description:string yt_video_id:string is_complete:boolean
+
+
+rails g bootstrap:install
+
+rails g bootstrap:layout application fixed
+rails g bootstrap:themed videos -f

@@ -1,0 +1,25 @@
+- model_class = @video.class
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:title) + ':'
+  %br
+  = @video.title
+%p
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
+  = @video.description
+%p
+  %strong= model_class.human_attribute_name(:yt_video_id) + ':'
+  %br
+  = @video.yt_video_id
+%p
+  %strong= model_class.human_attribute_name(:is_complete) + ':'
+  %br
+  = @video.is_complete
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), videos_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_video_path(@video), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), video_path(@video), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
