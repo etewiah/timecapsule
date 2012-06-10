@@ -4,20 +4,22 @@
 
 %p
   %strong= model_class.human_attribute_name(:title) + ':'
-  %br
   = @video.title
+
+%p
+  = raw yt_client.my_video(@video.yt_video_id).embed_html
+
 %p
   %strong= model_class.human_attribute_name(:description) + ':'
   %br
   = @video.description
+
 %p
-  %strong= model_class.human_attribute_name(:yt_video_id) + ':'
+  %strong Url
   %br
-  = @video.yt_video_id
-%p
-  %strong= model_class.human_attribute_name(:is_complete) + ':'
-  %br
-  = @video.is_complete
+  %a{:href => "http://www.youtube.com/watch?v=#{@video.yt_video_id}&feature=youtube_it", :target => "_blank"}
+    http://www.youtube.com/watch?v=#{@video.yt_video_id}
+
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), videos_path, :class => 'btn'

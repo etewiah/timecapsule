@@ -8,3 +8,7 @@ rails g bootstrap:install
 
 rails g bootstrap:layout application fixed
 rails g bootstrap:themed videos -f
+
+
+after upload, redirected to:
+http://127.0.0.1:3000/videos/new/save_video?video_id=6&status=200&id=u63spkW9VBU

@@ -1,4 +1,27 @@
 class VideosController < ApplicationController
+
+  def upload
+    @video = Video.create(params[:video])
+    if @video
+      @upload_info = Video.token_form(params[:video], save_video_new_video_url(:video_id => @video.id))
+    else
+      respond_to do |format|
+        format.html { render "/videos/new" }
+      end
+    end
+  end
+
+  def save_video
+    @video = Video.find(params[:video_id])
+    if params[:status].to_i == 200
+      @video.update_attributes(:yt_video_id => params[:id].to_s, :is_complete => true)
+      Video.delete_incomplete_videos
+    else
+      Video.delete_video(@video)
+    end
+    redirect_to @video, :notice => "video successfully uploaded"
+  end
+
   # GET /videos
   # GET /videos.json
   def index
